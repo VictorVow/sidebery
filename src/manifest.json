@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "browser_specific_settings": {
     "gecko": {
-      "id": "{3c078156-979c-498b-8990-85f7987dd929}",
+      "id": "{062af6f9-ab26-4621-8689-6ea939ddbd8d}",
       "strict_min_version": "153.0",
       "data_collection_permissions": {
         "required": [
@@ -57,7 +57,7 @@
   ],
   "sidebar_action": {
     "default_icon": "./assets/logo-native.svg",
-    "default_title": "Sidebery",
+    "default_title": "0-Custom - Sidebery",
     "default_panel": "./sidebar/sidebar.html"
   },
   "page_action": {
