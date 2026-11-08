@@ -216,6 +216,7 @@ function tempLockCloseBtn(): void {
 }
 function onBackToMouseUp(e: MouseEvent): void {
   if (e.button === 0) Tabs.returnToBound(tab.id)
+  else if (e.button === 1) Tabs.openBoundInNewTab(tab.id, e.shiftKey)
 }
 
 function onMouseDownClose(e: MouseEvent): void {

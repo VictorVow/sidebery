@@ -1360,6 +1360,28 @@ export function returnToBound(tabId: ID): void {
   })
 }
 
+/**
+ * Open bound URL in a new tab right after this one (middle-click on "Back to" btn)
+ */
+export function openBoundInNewTab(tabId: ID, active?: boolean): void {
+  const tab = Tabs.byId[tabId]
+  if (!tab?.boundUrl) return
+  const index = tab.index + 1
+  Tabs.setNewTabPosition(index, tab.parentId, tab.panelId)
+  browser.tabs
+    .create({
+      index,
+      url: tab.boundUrl,
+      active,
+      pinned: tab.pinned,
+      cookieStoreId: tab.cookieStoreId,
+      windowId: Windows.id,
+    })
+    .catch(err => {
+      Logs.err('Tabs.openBoundInNewTab: Cannot create tab:', err)
+    })
+}
+
 // The group page keeps rewriting its hash with an IPPC suffix (~!...!~), which isn't part of the group
 const IPPC_HASH_SUFFIX_RE = /~!.*!~$/
 
